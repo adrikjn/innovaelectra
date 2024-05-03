@@ -22,17 +22,14 @@ class CategoriesCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('title', 'Nom')->onlyOnIndex(),
-            TextField::new('title', 'Nom')->onlyWhenCreating(),
-            AssociationField::new('products')->onlyWhenUpdating(),
-            AssociationField::new('products')->onlyOnIndex(),
+            TextField::new('title', 'Nom'),
+            AssociationField::new('products', 'Produits')->onlyOnIndex(),
             TextEditorField::new('description'),
             ImageField::new('image')->setUploadDir('assets/img/categories/')->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')->onlyWhenCreating(),
             ImageField::new('image')->setUploadDir('assets/img/categories/')->setUploadedFileNamePattern('[slug]-[timestamp].[extension]')->onlyWhenUpdating()->setFormTypeOptions([
                 'required' => false,
             ]),
             ImageField::new('image')->setBasePath('img/categories/')->hideOnForm(),
-            TextEditorField::new('description'),
         ];
     }
     

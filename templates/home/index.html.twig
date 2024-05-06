@@ -5,11 +5,13 @@
 
 {% block body %}
 
-	<h1 class="text-secondary store-mt-title fw-bold">
+	<h1 class="text-warning text-center store-mt-title fw-bold mt-5">InnovaElectra.</h1>
+
+	<h2 class="text-secondary store-mt-title fw-bold mt-5">
 		<span class="fw-bolder text-dark">Store.</span>
 		Pour acheter vos
 		<br>
-		produits préférés, c’est ici.</h1>
+		produits préférés, c’est ici.</h2>
 
 	<div class="store-infos my-5">
 		<div class="store-infos-display">
@@ -17,7 +19,7 @@
 				<i class="bi bi-person-fill-add"></i>
 			</div>
 			<div>
-				<h2 class="fw-bold">Besoin d'aide pour faire vos achats ?</h2>
+				<p class="fw-bold text-dark">Besoin d'aide pour faire vos achats ?</p>
 				<a href="">Contacter nos Spécialistes</a>
 			</div>
 		</div>
@@ -26,7 +28,7 @@
 				<i class="bi bi-geo-alt-fill"></i>
 			</div>
 			<div>
-				<h2 class="fw-bold">Se rendre dans un IE Store</h2>
+				<p class="fw-bold text-dark">Se rendre dans un IE Store</p>
 				<a href="">Trouver un magasin à proximité ></a>
 			</div>
 		</div>
@@ -39,7 +41,31 @@
 					<div class="category mt-5">
 						<a href="" class="category-link text-center">
 							<img src="{{ asset('img/categories/' ~ category.image ) }}" alt="Categories Image" class="categories-img rounded">
-							<h3 class="text-dark fw-bold">{{ category.title}}</h3>
+							<h3 class="text-dark fw-bold mt-3">{{ category.title}}</h3>
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="latest-products">
+		<h2 class="text-secondary store-mt-title-2 fw-bold mt-5">
+			<span class="fw-bold text-dark">Les dernières nouveautés.</span>
+			Coup
+			<br>
+			d'oeil sur ce qui vient de sortir.</h2>
+
+		<div class="row">
+			{% for product in latestProducts %}
+				<div class="col-md-12 col-lg-4">
+					<div class="product">
+						<a href="" class="product-link">
+							<div class="product-overlay">
+								<h3>{{ product.title }}</h3>
+								<p>À partir de {{ product.price|number_format(0, '', '') / 100 }} €</p>
+							</div>
+							<img src="{{ asset('img/products/' ~ product.image ) }}" alt="" class="product-img">
 						</a>
 					</div>
 				</div>

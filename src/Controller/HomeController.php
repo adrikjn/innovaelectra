@@ -2,19 +2,23 @@
 
 namespace App\Controller;
 
+use App\Repository\ProductsRepository;
 use App\Repository\CategoriesRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(CategoriesRepository $repo): Response
+    public function index(CategoriesRepository $categoriesRepo, ProductsRepository $productsRepo): Response
     {
-        $categories = $repo->findAll();
+        $categories = $categoriesRepo->findAll();
+        $latestProducts = $productsRepo->findBy([], ['createdAt' => 'DESC'], 3);
+
         return $this->render('home/index.html.twig', [
-            'categories' => $categories
+            'categories' => $categories,
+            'latestProducts' => $latestProducts
         ]);
     }
 }

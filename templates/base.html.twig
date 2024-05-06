@@ -16,7 +16,7 @@
     <body>
 
        <header>
-            <nav class="navbar navbar-expand-xl" aria-label="Fourth navbar example">
+            <nav class="navbar navbar-expand-xl mt-4" aria-label="Fourth navbar example">
                 <div class="container-fluid">
                 <a href="{{ path('home')}}" class="logo">Innova Electra</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,19 +67,15 @@
                             </ul>
                         </li>
                     </ul>
-                   <div>
                     <a href=""><i class="bi bi-bag nav-icons"></i></a>
                     <a href=""><i class="bi bi-person nav-icons"></i></a>
-                    </div>
                 </div>
                 
                 </div>
             </nav>
         </header>
 
-        <div class="container">
             {% block body %}{% endblock %}
-        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>

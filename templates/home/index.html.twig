@@ -20,7 +20,7 @@
 			</div>
 			<div>
 				<p class="fw-bold text-dark">Besoin d'aide pour faire vos achats ?</p>
-				<a href="">Contacter nos Spécialistes</a>
+				<a href="#">Contacter nos Spécialistes</a>
 			</div>
 		</div>
 		<div class="store-infos-display">
@@ -29,7 +29,7 @@
 			</div>
 			<div>
 				<p class="fw-bold text-dark">Se rendre dans un IE Store</p>
-				<a href="">Trouver un magasin à proximité ></a>
+				<a href="#">Trouver un magasin à proximité ></a>
 			</div>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 			{% for category in categories %}
 				<div class="col-md-4">
 					<div class="category mt-5">
-						<a href="" class="category-link text-center">
+						<a href="{{ path('category.products', {id: category.id}) }}" class="category-link text-center">
 							<img src="{{ asset('img/categories/' ~ category.image ) }}" alt="Categories Image" class="categories-img rounded">
 							<h3 class="text-dark fw-bold mt-3">{{ category.title}}</h3>
 						</a>
@@ -63,7 +63,9 @@
 						<a href="" class="product-link">
 							<div class="product-overlay">
 								<h3>{{ product.title }}</h3>
-								<p>À partir de {{ product.price|number_format(0, '', '') / 100 }} €</p>
+								<p>À partir de
+									{{ product.price|number_format(0, '', '') / 100 }}
+									€</p>
 							</div>
 							<img src="{{ asset('img/products/' ~ product.image ) }}" alt="" class="product-img">
 						</a>

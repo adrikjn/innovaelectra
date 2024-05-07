@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Categories;
+use App\Entity\Category;
+use App\Entity\Products;
 use App\Repository\ProductsRepository;
 use App\Repository\CategoriesRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,6 +23,19 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'categories' => $categories,
             'latestProducts' => $latestProducts
+        ]);
+    }
+
+    #[Route('/category/{id}', name: 'category.products')]
+    public function categoryProducts(Categories $category, EntityManagerInterface $em): Response {
+        // $products = $category->getProducts(); (Directement depuis l'entité)
+        $products = $em->getRepository(Products::class)->findBy(
+            ['category' => $category],
+            ['id' => 'DESC'] 
+        );
+
+        return $this->render('home/category_products.html.twig', [
+            'products' => $products,
         ]);
     }
 }

@@ -1,13 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Produits de la catégorie</h1>
-    <ul>
-        {% for product in products %}
-            <div>
-                <img src="{{ asset('img/products/' ~ product.image)}}" alt="">
-                <p>{{ product.title }}</p>
+	<h1>Produits de la catégorie</h1>
+	<div class="row">
+		{% for product in products %}
+			<div class="col-md-12 col-lg-4">
+				<div class="product">
+					<a href="" class="product-link">
+						<div class="product-overlay">
+							<p class="product-title-form">{{ product.title }}</p>
+						</div>
+						<img src="{{ asset('img/products/' ~ product.image)}}" alt="Produits" class="product-img">
+					</a>
+				</div>
             </div>
-        {% endfor %}
-    </ul>
-{% endblock %}
+			{% endfor %}
+		</div>
+	{% endblock %}

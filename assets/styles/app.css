@@ -90,32 +90,37 @@ p {
 }
 
 .product {
-    position: relative;
-    margin-top: 30px;
+  position: relative;
+  margin-top: 30px;
 }
 
 .product-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); 
-    color: white; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
 }
 .product h3 {
-    margin-top: 50px;
-    font-size: 60px;
+  margin-top: 50px;
+  font-size: 60px;
 }
 
 .product h3,
 .product p {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 
-
 .product-img {
-    display: block;
-    width: 100%;
-    height: 833px;
+  display: block;
+  width: 100%;
+  height: 833px;
+}
+
+/* Products by categories */
+.product-title-form {
+  margin-top: 35px;
+  font-size: 60px;
 }

@@ -27,12 +27,15 @@ class HomeController extends AbstractController
     }
 
     #[Route('/category/{id}', name: 'category.products')]
-    public function categoryProducts(Categories $category, EntityManagerInterface $em): Response {
+    public function categoryProducts(Categories $category, ProductsRepository $productRepository): Response {
         // $products = $category->getProducts(); (Directement depuis l'entité)
-        $products = $em->getRepository(Products::class)->findBy(
-            ['category' => $category],
-            ['id' => 'DESC'] 
-        );
+
+        // $products = $em->getRepository(Products::class)->findBy(
+        //     ['category' => $category],
+        //     ['id' => 'DESC'] 
+        // );
+
+        $products = $productRepository->findProductsByCategorySortedByIdDesc($category);
 
         return $this->render('home/category_products.html.twig', [
             'products' => $products,

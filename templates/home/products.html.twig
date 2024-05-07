@@ -5,14 +5,18 @@
 
 {% block body %}
 	<div>
-		<h1>Acheter un
-			{{ product.title }}</h1>
+		<h1 class="text-secondary store-mt-title fw-bold mt-5">Acheter un
+			{{ product.title }}
+			dès maintenant !</h1>
+
 		<p>Au prix de
-			{{ product.price }}</p>
-		<div>
-			<p>{{ product.description }}</p>
-		</div>
+			{{ product.price|number_format(0, '', '') / 100 }}€</p>
+		<img src="{{ asset('img/products/' ~ product.image)}}" alt="Produits" class="product-img">
+		<p>{{ product.createdAt|date('F Y') }}</p>
+		<p>Depuis : {{ product.quantity }} en stock</p>
+		<p>{{ product.description|striptags }}</p>
 	</div>
 
+	{# image description prce .. etc ? regarder le reste #}
 
 {% endblock %}

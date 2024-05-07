@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<h1>Produits de la catégorie</h1>
+	<h1 class="text-secondary store-mt-title fw-bold mt-5">Découvrez notre gammes</h1>
 	<div class="row">
 		{% for product in products %}
 			<div class="col-md-12 col-lg-4">
@@ -13,7 +13,7 @@
 						<img src="{{ asset('img/products/' ~ product.image)}}" alt="Produits" class="product-img">
 					</a>
 				</div>
-            </div>
-			{% endfor %}
-		</div>
-	{% endblock %}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

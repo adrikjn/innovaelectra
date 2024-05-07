@@ -60,7 +60,7 @@
 			{% for product in latestProducts %}
 				<div class="col-md-12 col-lg-4">
 					<div class="product">
-						<a href="" class="product-link">
+						<a href="{{ path('product.details', {id: product.id}) }}" class="product-link">
 							<div class="product-overlay">
 								<h3>{{ product.title }}</h3>
 								<p>À partir de

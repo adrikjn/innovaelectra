@@ -41,4 +41,12 @@ class HomeController extends AbstractController
             'products' => $products,
         ]);
     }
+
+    #[Route('/product/{id}', name: 'product.details')]
+    public function showProductDetails(Products $product): Response
+    {
+        return $this->render('home/products.html.twig', [
+            'product' => $product,
+        ]);
+    }
 }

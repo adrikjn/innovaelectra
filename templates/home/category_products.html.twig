@@ -6,7 +6,7 @@
 		{% for product in products %}
 			<div class="col-md-12 col-lg-4">
 				<div class="product">
-					<a href="" class="product-link">
+					<a href="{{ path('product.details', {id: product.id}) }}" class="product-link">
 						<div class="product-overlay">
 							<p class="product-title-form">{{ product.title }}</p>
 						</div>

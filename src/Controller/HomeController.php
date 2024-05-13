@@ -61,4 +61,10 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/basket}', name: 'basket.details')]
+    public function getBasket(): Response
+    {
+        return $this->render('home/basket.html.twig');
+    }
+
 }

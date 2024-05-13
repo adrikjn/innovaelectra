@@ -6,17 +6,21 @@
 {% block body %}
 	<div>
 		<h1 class="text-secondary store-mt-title fw-bold mt-5">Acheter un
-			{{ product.title }}
+			<span class="text-dark">{{ product.title }}</span>
 			dès maintenant !</h1>
 
-		<p>Au prix de
-			{{ product.price|number_format(0, '', '') / 100 }}€</p>
+		<div class="d-flex justify-content-end">
+			<button class="my-5 fw-bold text-center btn btn-lg btn-primary fs-1 text-light">Ajouter au panier <i class="bi bi-bag-plus"></i></button>
+		</div>
+		
+		<p class="text-end text-secondary mt-3">Au prix de <span class="text-dark fw-bold">{{ product.price|number_format(0, '', '') / 100 }} €</span>
+		</p>
+
 		<img src="{{ asset('img/products/' ~ product.image)}}" alt="Produits" class="product-img">
-		<p>{{ product.createdAt|date('F Y') }}</p>
-		<p>Depuis : {{ product.quantity }} en stock</p>
-		<p>{{ product.description|striptags }}</p>
+
+		<p class="text-danger fs-3 text-end mt-3">Encore {{ product.quantity }} en stock !</p>
+
+		<button id="toggleButton" class="btn btn-dark btn-lg mt-3">Afficher la description</button>
+		<p id="descriptionText" class="fs-3 d-none">{{ product.description|striptags }}</p>
 	</div>
-
-	{# image description prce .. etc ? regarder le reste #}
-
 {% endblock %}

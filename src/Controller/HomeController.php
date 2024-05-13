@@ -26,6 +26,16 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/categories', name: 'categories')]
+    public function getCategories(CategoriesRepository $categoriesRepo): Response
+    {
+        $categories = $categoriesRepo->findAll();
+
+        return $this->render('home/categories.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
+
     #[Route('/category/{id}', name: 'category.products')]
     public function categoryProducts(Categories $category, ProductsRepository $productRepository): Response
     {
@@ -51,26 +61,4 @@ class HomeController extends AbstractController
         ]);
     }
 
-    public function navRedirection(CategoriesRepository $categoriesRepo, ProductsRepository $productsRepo): Response
-    {
-        // Récupérer toutes les catégories
-        $categories = $categoriesRepo->findAll();
-        
-        // Initialisez un tableau pour stocker les produits associés à chaque catégorie
-        $productsByCategory = [];
-    
-        // Pour chaque catégorie, récupérez les produits associés et stockez-les dans le tableau
-        foreach ($categories as $categorie) {
-            $categoryId = $categorie->getId();
-            $products = $productsRepo->findBy(['categorie' => $categoryId]);
-            $productsByCategory[$categoryId] = $products;
-        }
-    
-        // Passez les catégories et les produits associés à votre vue Twig (base.html.twig dans ce cas)
-        return $this->render('base.html.twig', [
-            'categories' => $categories,
-            'productsByCategory' => $productsByCategory,
-        ]);
-    }
-    
 }

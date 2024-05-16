@@ -18,24 +18,20 @@
 		</p>
 
 		<div>
-			<img
-			src="{{ asset('img/products/' ~ product.image)}}" alt="Produits" class="product-img">
-		{# <div class="d-flex justify-content-end">
-										<button id="addToCartButton" class="my-5 fw-bold text-center btn btn-lg btn-primary fs-1 text-light" data-product-id="{{ product.id }}" data-product-title="{{ product.title }}" data-product-price="{{ product.price }}" data-product-image="{{ asset('img/products/' ~ product.image) }}">
-											Ajouter au panier
-											<i class="bi bi-bag-plus"></i>
-										</button>
-						
-									</div> #}
+			<img src="{{ asset('img/products/' ~ product.image)}}" alt="Produits" class="product-img">
+			<div class="d-flex justify-content-end">
+				<button  class="my-5 fw-bold text-center btn btn-lg btn-primary fs-1 text-light">
+					Ajouter au panier
+					<i class="bi bi-bag-plus"></i>
+				</button>
+
+			</div>
 		</div>
 
 		<p class="text-danger fs-3 text-end mt-3">Encore
 			{{ product.quantity }}
 			en stock !</p>
-
-		<button id="toggleButton" class="btn btn-dark btn-lg mt-3">Afficher la description</button>
 		<p id="descriptionText" class="fs-3 d-none">{{ product.description|striptags }}</p>
 	</div>
 
 {% endblock %}
-

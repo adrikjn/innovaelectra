@@ -5,22 +5,37 @@
 
 {% block body %}
 	<div>
+		<div id="successMessage" class="alert alert-success d-none" role="alert">
+			Produit ajouté au panier avec succès !
+		</div>
 		<h1 class="text-secondary store-mt-title fw-bold mt-5">Acheter un
 			<span class="text-dark">{{ product.title }}</span>
 			dès maintenant !</h1>
 
-		<div class="d-flex justify-content-end">
-			<button class="my-5 fw-bold text-center btn btn-lg btn-primary fs-1 text-light">Ajouter au panier <i class="bi bi-bag-plus"></i></button>
-		</div>
-		
-		<p class="text-end text-secondary mt-3">Au prix de <span class="text-dark fw-bold">{{ product.price|number_format(0, '', '') / 100 }} €</span>
+		<p class="text-end text-secondary mt-3">Au prix de
+			<span class="text-dark fw-bold">{{ product.price|number_format(0, '', '') / 100 }}
+				€</span>
 		</p>
 
-		<img src="{{ asset('img/products/' ~ product.image)}}" alt="Produits" class="product-img">
+		<div>
+			<img
+			src="{{ asset('img/products/' ~ product.image)}}" alt="Produits" class="product-img">
+		{# <div class="d-flex justify-content-end">
+										<button id="addToCartButton" class="my-5 fw-bold text-center btn btn-lg btn-primary fs-1 text-light" data-product-id="{{ product.id }}" data-product-title="{{ product.title }}" data-product-price="{{ product.price }}" data-product-image="{{ asset('img/products/' ~ product.image) }}">
+											Ajouter au panier
+											<i class="bi bi-bag-plus"></i>
+										</button>
+						
+									</div> #}
+		</div>
 
-		<p class="text-danger fs-3 text-end mt-3">Encore {{ product.quantity }} en stock !</p>
+		<p class="text-danger fs-3 text-end mt-3">Encore
+			{{ product.quantity }}
+			en stock !</p>
 
 		<button id="toggleButton" class="btn btn-dark btn-lg mt-3">Afficher la description</button>
 		<p id="descriptionText" class="fs-3 d-none">{{ product.description|striptags }}</p>
 	</div>
+
 {% endblock %}
+

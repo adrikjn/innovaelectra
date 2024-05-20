@@ -18,9 +18,9 @@
 		</p>
 
 		<div>
-			<img src="{{ asset('img/products/' ~ product.image) }}" alt="Produits" class="product-img">
+			<img src="{{ asset('assets/img/products/' ~ product.image) }}" alt="Produits" class="product-img">
 			<div class="d-flex justify-content-end">
-				<button id="addToCartButton" class="my-5 fw-bold text-center btn btn-lg btn-primary fs-1 text-light" data-product-id="{{ product.id }}" data-product-title="{{ product.title }}" data-product-price="{{ product.price }}" data-product-image="{{ asset('img/products/' ~ product.image) }}">
+				<button id="addToCartButton" class="my-5 fw-bold text-center btn btn-lg btn-primary fs-1 text-light" data-product-id="{{ product.id }}" data-product-title="{{ product.title }}" data-product-price="{{ product.price }}" data-product-image="{{ asset('assets/img/products/' ~ product.image) }}">
 					Ajouter au panier
 					<i class="bi bi-bag-plus"></i>
 				</button>

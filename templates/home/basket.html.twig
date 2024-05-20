@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InnovaElectra - Votre panier{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1>Votre panier</h1>
+    <div id="cartItems" class="row"></div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+// <script>
+// document.addEventListener('DOMContentLoaded', () => {
+//     const cartItemsContainer = document.getElementById('cartItems');
+//     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+//     if (cart.length === 0) {
+//         cartItemsContainer.innerHTML = '<p>Votre panier est vide.</p>';
+//     } else {
+//         cart.forEach(product => {
+//             const productElement = document.createElement('div');
+//             productElement.classList.add('col-md-4', 'mb-4');
+//             productElement.innerHTML = `
+//                 <div class="card">
+//                     <img src="${product.image}" class="card-img-top" alt="${product.title}">
+//                     <div class="card-body">
+//                         <h5 class="card-title">${product.title}</h5>
+//                         <p class="card-text">Prix: ${product.price.toFixed(2)} €</p>
+//                         <p class="card-text">Quantité: ${product.quantity}</p>
+//                     </div>
+//                 </div>
+//             `;
+//             cartItemsContainer.appendChild(productElement);
+//         });
+//     }
+// });
+// </script>
+{% endblock %}

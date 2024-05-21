@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}InnovaElectra - Votre panier{% endblock %}
-
-{% block body %}
-<div class="container my-5">
-    <h1>Votre panier</h1>
-    <div id="cartItems" class="row"></div>
-</div>
+{% block title %}InnovaElectra - Votre panier
 {% endblock %}
 
+{% block body %}
+	<div class="container my-5">
+		<div class="d-flex justify-content-between">
+			<h1>Votre panier</h1>
+            <button class="btn btn-dark">Payer</button>
+		</div>
+
+		<div id="cartItems" class="row"></div>
+	</div>
+{% endblock %}

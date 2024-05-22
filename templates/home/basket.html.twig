@@ -7,7 +7,14 @@
 	<div class="container my-5">
 		<div class="d-flex justify-content-between">
 			<h1>Votre panier</h1>
-            <button class="btn btn-dark">Payer</button>
+			{% if app.user %}
+				<button class="btn btn-success">Payer</button>
+			{% else %}
+				<button class="btn btn-dark">
+					<a href="{{path('app_login')}}" class="text-light">Se connecter pour acheter le produit</a>
+				</button>
+
+			{% endif %}
 		</div>
 
 		<div id="cartItems" class="row"></div>

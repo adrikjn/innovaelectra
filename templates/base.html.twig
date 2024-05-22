@@ -12,9 +12,7 @@
 		<link rel="stylesheet" href="{{ asset('assets/styles/app.css')}}">
 		<script src="{{ asset('assets/app.js')}}" defer></script>
 
-		{% block javascripts %}
-	
-		{% endblock %}
+		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
 
@@ -36,12 +34,18 @@
 							</li>
 
 						</ul>
-						<a href="{{ path('basket.details')}}">
-							<i class="bi bi-bag nav-icons"></i>
-						</a>
-						<a href="">
-							<i class="bi bi-person nav-icons"></i>
-						</a>
+						<ul class="d-flex list-unstyled">
+							<li>
+								<a href="{{path('app_login')}}" class="mx-1">
+									<i class="bi bi-person nav-icons"></i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ path('basket.details')}}">
+									<i class="bi bi-cart nav-icons"></i>
+								</a>
+							</li>
+						</ul>
 					</div>
 
 				</div>
